@@ -67,7 +67,7 @@ public class contacto extends AppCompatActivity implements View.OnClickListener 
 
         session = Session.getDefaultInstance(props, new Authenticator() {
         protected PasswordAuthentication getPasswordAuthentication(){
-            return new PasswordAuthentication("fcbravo91@gmail.com","atlass_33");
+            return new PasswordAuthentication("test1234@gmail.com","password");
         }
         });
 
