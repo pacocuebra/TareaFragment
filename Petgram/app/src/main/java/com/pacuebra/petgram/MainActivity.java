@@ -1,13 +1,10 @@
 package com.pacuebra.petgram;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -19,6 +16,7 @@ import android.widget.Toast;
 import com.pacuebra.petgram.Adapter.PageAdapter;
 import com.pacuebra.petgram.Fragment.PerfilFragment;
 import com.pacuebra.petgram.Fragment.RecyclerView_Fragment;
+import com.pacuebra.petgram.Menu.Acerca;
 import com.pacuebra.petgram.Menu.Favoritos;
 import com.pacuebra.petgram.Menu.contacto;
 
@@ -35,20 +33,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-      //  ActionBar actionBar =getSupportActionBar();
-       //  actionBar.setDisplayHomeAsUpEnabled(true);
-
-       // this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         toolbar     = (Toolbar)     findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        if(toolbar == null){
+            setSupportActionBar(toolbar);
+        }
         tabLayout = (TabLayout)  findViewById(R.id.tabLayout);
         viewPager   = (ViewPager)   findViewById(R.id.viewPager);
 
         setUpViewPager();
-
-        if(toolbar != null){
-            setSupportActionBar(toolbar);
-        }
     }
 
 
@@ -70,10 +63,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        menu.clear();
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.favoritos, menu);
-        menuInflater.inflate(R.menu.menu_opciones, menu);
+
+         MenuInflater menuInflater = getMenuInflater();
+         menuInflater.inflate(R.menu.favoritos, menu);
+         menuInflater.inflate(R.menu.menu_opciones, menu);
         return true;
         //return super.onCreateOptionsMenu(menu);
     }
